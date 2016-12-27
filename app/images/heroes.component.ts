@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Hero }                from '../services/hero';
+import { Image }                from '../services/image';
 import { HeroService }         from '../services/hero.service';
 
 @Component({
@@ -11,8 +11,8 @@ import { HeroService }         from '../services/hero.service';
   styleUrls: [ 'heroes.component.css' ]
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
+  heroes: Image[];
+  selectedHero: Image;
 
   constructor(
     private heroService: HeroService,
@@ -24,19 +24,19 @@ export class HeroesComponent implements OnInit {
         .then(heroes => this.heroes = heroes);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.create(name)
-      .then(hero => {
-        this.heroes.push(hero);
-        this.selectedHero = null;
-      });
-  }
+  // add(name: string): void {
+  //   name = name.trim();
+  //   if (!name) { return; }
+  //   this.heroService.create(name)
+  //     .then(hero => {
+  //       this.heroes.push(hero);
+  //       this.selectedHero = null;
+  //     });
+  // }
 
-  delete(hero: Hero): void {
+  delete(hero: Image): void {
     this.heroService
-        .delete(hero.id)
+        .delete(hero.software_version)
         .then(() => {
           this.heroes = this.heroes.filter(h => h !== hero);
           if (this.selectedHero === hero) { this.selectedHero = null; }
@@ -47,12 +47,13 @@ export class HeroesComponent implements OnInit {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
+  onSelect(hero: Image): void {
     this.selectedHero = hero;
+    this.router.navigate(['/detail', this.selectedHero.software_version]);
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
+    this.router.navigate(['/detail', this.selectedHero.software_version]);
   }
 }
 

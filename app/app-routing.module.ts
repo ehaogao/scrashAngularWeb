@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'dashboard',  component: DashboardComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes',     component: HeroesComponent },
-  { path: 'detail/:id/form', component: HeroFormComponent },
+  { path: 'regItems/:id', component: HeroFormComponent },
 ];
 
 @NgModule({

@@ -6,15 +6,18 @@ import { Component }          from '@angular/core';
   template: `
     <h1>{{title}}</h1>
     <nav>
-      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      <a routerLink="/dashboard" routerLinkActive="active">Home</a>
+      <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+      <input id="searchInput" placeholder="Search for..." type="text">
     </nav>
     <router-outlet></router-outlet>
   `,
   styleUrls: ['app.component.css']
 })
 export class AppComponent {
-  title = 'Tour of Heroes';
+  title = 'We are getting regression better!';
 }
 
 
