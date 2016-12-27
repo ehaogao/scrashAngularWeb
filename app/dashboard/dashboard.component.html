@@ -1,14 +1,14 @@
 <h3>Top Regressions</h3>
 <div class="grid grid-pad">
-  <a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.software_version]"  class="col-1-4">
-    <div class="module hero card">
+  <a *ngFor="let image of images"  [routerLink]="['/detail', image.software_version]"  class="col-1-4">
+    <div class="module card">
       <div class="card-block">
-          <h4 class="card-title">{{hero.software_version}}</h4>
+          <h4 class="card-title">{{image.software_version}}</h4>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
     </div>
   </a>
-  <a routerLink="/heroes" routerLinkActive="active" class="btn btn-primary">
+  <a routerLink="/images" routerLinkActive="active" class="btn btn-primary">
   More...
   </a>
 </div>

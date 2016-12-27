@@ -13,11 +13,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent }         from './app.component';
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './images/heroes.component';
-import { HeroDetailComponent }  from './image-manager/hero-detail.component';
-import { HeroService }          from './services/hero.service';
-import { HeroSearchComponent }  from './search/hero-search.component';
-import { HeroFormComponent } from './forms/hero-form.component';
+import { ImagesComponent }      from './images/images.component';
+import { ImageDetailComponent }  from './image-manager/image-detail.component';
+import { RegdbService }          from './services/regdb.service';
+import { ImageSearchComponent }  from './search/image-search.component';
+import { ItemFormComponent } from './forms/item-form.component';
 
 @NgModule({
   imports: [
@@ -30,12 +30,12 @@ import { HeroFormComponent } from './forms/hero-form.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    HeroDetailComponent,
-    HeroesComponent,
-    HeroSearchComponent,
-    HeroFormComponent
+    ImageDetailComponent,
+    ImagesComponent,
+    ImageSearchComponent,
+    ItemFormComponent
   ],
-  providers: [ HeroService ],
+  providers: [ RegdbService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

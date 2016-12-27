@@ -2,16 +2,16 @@ import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { DashboardComponent }   from './dashboard/dashboard.component';
-import { HeroesComponent }      from './images/heroes.component';
-import { HeroDetailComponent }  from './image-manager/hero-detail.component';
-import { HeroFormComponent } from './forms/hero-form.component';
+import { ImagesComponent }      from './images/images.component';
+import { ImageDetailComponent }  from './image-manager/image-detail.component';
+import { ItemFormComponent } from './forms/item-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes',     component: HeroesComponent },
-  { path: 'regItems/:id', component: HeroFormComponent },
+  { path: 'detail/:id', component: ImageDetailComponent },
+  { path: 'images',     component: ImagesComponent },
+  { path: 'regItems/:id', component: ItemFormComponent },
 ];
 
 @NgModule({

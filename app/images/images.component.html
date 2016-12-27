@@ -1,0 +1,17 @@
+<h2>Latest Regressions</h2>
+<ul class="images">
+  <li *ngFor="let image of images" (click)="onSelect(image)"
+      [class.selected]="image === selectedImage">
+    <span class="badge">{{image.product_release}}</span>
+    <span>{{image.software_version}}</span>
+    
+  </li>
+</ul>
+
+
+
+<!-- 
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->

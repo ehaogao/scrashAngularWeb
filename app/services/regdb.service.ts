@@ -8,20 +8,20 @@ import { RegItem } from './regItem';
 // import { HEROES } from './mock-heroes';
 
 @Injectable()
-export class HeroService {
+export class RegdbService {
     private heroesUrl = 'http://localhost:8080/regressionWebService/webapi/images';  // URL to web api
 
     constructor(private http: Http) { }
 
-    getHeroes(): Promise<Image[]> {
+    getImages(): Promise<Image[]> {
         return this.http.get(this.heroesUrl)
             .toPromise()
             .then(response => response.json() as Image[])
             .catch(this.handleError);
     }
     
-    getHero(id: string): Promise<Image> {
-        return this.getHeroes()
+    getImage(id: string): Promise<Image> {
+        return this.getImages()
             .then(heroes => heroes.find(hero => hero.software_version === id));
     }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Image }        from '../services/image';
-import { HeroService } from '../services/hero.service';
+import { RegdbService } from '../services/regdb.service';
 
 @Component({
   moduleId: module.id,
@@ -10,13 +10,13 @@ import { HeroService } from '../services/hero.service';
   styleUrls: [ 'dashboard.component.css' ]
 })
 export class DashboardComponent implements OnInit {
-  heroes: Image[] = [];
+  images: Image[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private regdbService: RegdbService) { }
 
   ngOnInit(): void {
-    this.heroService.getHeroes()
-      .then(heroes => this.heroes = heroes.slice(1, 5));
+    this.regdbService.getImages()
+      .then(images => this.images = images.slice(1, 5));
   }
 }
 

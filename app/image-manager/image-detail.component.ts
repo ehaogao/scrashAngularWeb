@@ -5,24 +5,24 @@ import { Location }               from '@angular/common';
 
 import { Image }        from '../services/image';
 import { RegItem } from '../services/regItem';
-import { HeroService } from '../services/hero.service';
+import { RegdbService } from '../services/regdb.service';
 
 @Component({
   moduleId: module.id,
-  selector: 'my-hero-detail',
-  templateUrl: 'hero-detail.component.html',
-  styleUrls: [ 'hero-detail.component.css' ]
+  selector: 'selected-image-detail',
+  templateUrl: 'image-detail.component.html',
+  styleUrls: [ 'image-detail.component.css' ]
 })
-export class HeroDetailComponent implements OnInit {
+export class ImageDetailComponent implements OnInit {
 
   constructor(
-    private heroService: HeroService,
+    private regdbService: RegdbService,
     private route: ActivatedRoute,
     private router: Router,
     private location: Location
   ) {}
 
-  hero: Image;
+  image: Image;
   regItems: RegItem[];
   selectedItem: RegItem;
 
@@ -31,7 +31,7 @@ export class HeroDetailComponent implements OnInit {
 
   // ngOnInit(): void {
   //   this.route.params
-  //     .switchMap((params: Params) => this.heroService.getHero(+params['id']))
+  //     .switchMap((params: Params) => this.regdbService.getHero(+params['id']))
   //     .subscribe(hero => this.hero = hero);
   // }
 
@@ -39,9 +39,9 @@ export class HeroDetailComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       //      let id = +params['id'];
       let id = params['id'];
-      this.heroService.getHero(id)
-        .then(hero => this.hero = hero);
-      this.heroService.getRegItems(id)
+      this.regdbService.getImage(id)
+        .then(image => this.image = image);
+      this.regdbService.getRegItems(id)
         .then(data => this.regItems = data);
     });
   }

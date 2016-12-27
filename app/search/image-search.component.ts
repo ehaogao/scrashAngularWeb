@@ -3,22 +3,22 @@ import { Router }            from '@angular/router';
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';
 
-import { HeroSearchService } from '../services/hero-search.service';
-import { Hero } from '../services/hero';
+import { ImageSearchService } from '../services/image-search.service';
+import { Image } from '../services/image';
 
 @Component({
   moduleId: module.id,
-  selector: 'hero-search',
-  templateUrl: 'hero-search.component.html',
-  styleUrls: [ 'hero-search.component.css' ],
-  providers: [HeroSearchService]
+  selector: 'image-search',
+  templateUrl: 'image-search.component.html',
+  styleUrls: [ 'image-search.component.css' ],
+  providers: [ImageSearchService]
 })
-export class HeroSearchComponent implements OnInit {
-  heroes: Observable<Hero[]>;
+export class ImageSearchComponent implements OnInit {
+  images: Observable<Image[]>;
   private searchTerms = new Subject<string>();
 
   constructor(
-    private heroSearchService: HeroSearchService,
+    private imageSearchService: ImageSearchService,
     private router: Router) {}
 
   // Push a search term into the observable stream.
@@ -27,23 +27,23 @@ export class HeroSearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.heroes = this.searchTerms
+    this.images = this.searchTerms
       .debounceTime(300)        // wait for 300ms pause in events
       .distinctUntilChanged()   // ignore if next search term is same as previous
       .switchMap(term => term   // switch to new observable each time
         // return the http search observable
-        ? this.heroSearchService.search(term)
+        ? this.imageSearchService.search(term)
         // or the observable of empty heroes if no search term
-        : Observable.of<Hero[]>([]))
+        : Observable.of<Image[]>([]))
       .catch(error => {
         // TODO: real error handling
         console.log(error);
-        return Observable.of<Hero[]>([]);
+        return Observable.of<Image[]>([]);
       });
   }
 
-  gotoDetail(hero: Hero): void {
-    let link = ['/detail', hero.id];
+  gotoDetail(image: Image): void {
+    let link = ['/detail', image.software_version];
     this.router.navigate(link);
   }
 }
