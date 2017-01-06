@@ -52,7 +52,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {"duration":"7.56","endDate":"2016-10-29","exceptionTestScript":0,"failedCase":0,"featureArea":"L3","featureName":"MCAST","id":7041,"image":{"product_number":"P1S","product_release":"17B","software_version":"R3A187"},"jobLink":"https://spr-jenkins.mo.sw.ericsson.se/job/17B_regression_storm_reg/8/","jobStartPlan":"WK06","passedCase":110,"regType":"weekly","status":1,"targetTotalTC":110,"team":"17B_regression_storm_reg","totalCase":110,"utb":"UTB06"},
       {"duration":"7.9","endDate":"2016-10-29","exceptionTestScript":0,"failedCase":0,"featureArea":"L3","featureName":"BVI","id":7042,"image":{"product_number":"P1S","product_release":"17B","software_version":"R3A187"},"jobLink":"https://spr-jenkins.mo.sw.ericsson.se/job/17B_regression_007_reg/5/","jobStartPlan":"WK15","passedCase":101,"regType":"weekly","status":1,"targetTotalTC":122,"team":"17B_regression_007_reg","totalCase":102,"utb":"UTB08"}
       ];
-    return {heroes, images, regItems};
+    return {heroes};
   }
 }
 
